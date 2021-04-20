@@ -56,16 +56,21 @@ const FormOrderCreate = () => {
       prodsOrder["product_ids"].push(e.target.index[i].value);
       prodsOrder["quantite"].push(e.target.quantite[i].value);
     }
-    prodsOrder['numOrder'] += randomStr();
+    prodsOrder["numOrder"] += randomStr();
     // console.log(prodsOrder);
+
     const options = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(prodsOrder),
     };
-    fetch("http://localhost:8000/api/orders/", options).then((response) => {
-      console.log(response);
-    });
+    const Orderjson = JSON.stringify(prodsOrder);
+    axios
+      
+      .post("http://localhost:8000/api/orders/", Orderjson)
+        // fetch("http://localhost:8000/api/orders/", options)
+      .then((response) => {
+          console.log(response);
+        });
   };
   const addProduct = (e) => {
     e.preventDefault();
