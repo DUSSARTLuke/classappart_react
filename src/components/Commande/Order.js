@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import moment from "moment";
+import { Button } from "react-bootstrap";
 
 const Order = (props) => {
   let history = useHistory();
@@ -14,9 +15,12 @@ const Order = (props) => {
       <td>{order.price} €</td>
       <td>{order.date_commande}</td>
       <td>
-        <button onClick={(id) => history.push("/commande/view/" + order.id)}>
-          Redirect
-        </button>
+        <Button
+          variant="primary"
+          onClick={(id) => history.push("/commande/view/" + order.id)}
+        >
+          Voir details
+        </Button>
       </td>
     </tr>
   );
