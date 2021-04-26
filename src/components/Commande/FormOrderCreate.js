@@ -61,16 +61,20 @@ const FormOrderCreate = () => {
 
     const options = {
       method: "POST",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer eyJpdiI6InJibFB1am85NVVJWDNBNVFxUzlrWEE9PSIsInZhbHVlIjoidmJKcmJyK28rNHI3aXh1Vm10Ync1eVdjemd5L0pZTDV1bEpZSmFTL1g0SW9JMitPQXM4eSttaU1ibHNBQjJRWWVpWGZ1RFRVNWk3MXZxQUNQWkw0aFB0THgveGNjMy80UUMxOXYrZ3h0ek1XcGlJb2dnNnV5dW5oV3ZWSEdURkIiLCJtYWMiOiJiYzAxMmRkNzZlMzA3OTQ1ZDIyMThhMTVkZjEzMjkyMzQyNDUyNDVkMjljNTY4NTlmZmE0YWZmNGM3OTRkODQ1In0%3D`,
+      },
       body: JSON.stringify(prodsOrder),
     };
     const Orderjson = JSON.stringify(prodsOrder);
     axios
-      
-      .post("http://localhost:8000/api/orders/", Orderjson)
-        // fetch("http://localhost:8000/api/orders/", options)
+
+      .post("http://localhost:8000/api/orders/", options)
+      // fetch("http://localhost:8000/api/orders/", options)
       .then((response) => {
-          console.log(response);
-        });
+        console.log(response);
+      });
   };
   const addProduct = (e) => {
     e.preventDefault();
